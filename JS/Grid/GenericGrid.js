@@ -97,11 +97,31 @@ class GenericGrid{
     }
 
     write_AreaCells(x1,y1,x2,y2,index){
-        for(let x = x1;x<x2;x++){
+        for(let x = x1;x<=x2;x++){
+                for(let y = y1;y<=y2;y++){
+                    this.write_Cell(x,y,index);
+                }
+            }
+        /*
+        if(x1==x2 && y1==y2){
+            this.write_Cell(x1,y1,index);
+        }
+        else if(x1==x2){
             for(let y = y1;y<y2;y++){
-                this.write_Cell(x,y,index);
+                this.write_Cell(x1,y,index);
             }
         }
+        else if(y1==y2){
+            for(let x = x1;y<x2;x++){
+                this.write_Cell(x,y1,index);
+            }
+        }
+        else{
+            
+        }
+        */
+
+       
     }
 
     putGridOccupant(x,y,index,gridOccupant){
@@ -177,9 +197,9 @@ class GenericGrid{
     }
 }
 
-let gg = new GenericGrid(9,9);
+let gg = new GenericGrid(8,8);
 
-gg.write_AreaCells(2,2,5,5,10)
+gg.write_AreaCells(0,0,7,0,0);
 
 console.log(gg.read_AreaIsVacant(3,3,5,5))
 
